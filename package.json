@@ -1,0 +1,33 @@
+{
+    "name": "AppSemillaNodeJsBackend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "migrate": "npx sequelize-cli db:migrate",
+        "migrate-undo-all": "npx sequelize-cli db:migrate:undo:all",
+        "seed-all": "npx sequelize-cli db:seed:all",
+        "seed-undo-all": "npx sequelize-cli db:seed:undo:all",
+        "dev": "nodemon app.js",
+        "start": "node app.js",
+        "browser": "open -a \"Google Chrome\" \"http:localhost:3000\"",
+        "prettier": "npx ./node_modules/.bin/prettier --write .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Jhon Martinez",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "joi": "^17.4.2",
+        "mariadb": "^2.5.5",
+        "sequelize": "^6.8.0"
+    },
+    "devDependencies": {
+        "faker": "^5.5.3",
+        "nodemon": "^2.0.14",
+        "prettier": "^2.4.1",
+        "sequelize-cli": "^6.3.0"
+    }
+}

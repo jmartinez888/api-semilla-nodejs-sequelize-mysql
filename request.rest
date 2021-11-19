@@ -1,0 +1,64 @@
+@host = http://localhost:3000
+@authorization = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYzMzk5OTU2MCwiZXhwIjoxNjM0MDAzMTYwLCJuYmYiOjE2MzM5OTk1NjAsImp0aSI6Ik5mWHdLcGQ2TVd2ZkpXbWkiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.pv70LreNIRWYtoPUdsSQhW48Chh0EThdgYPCyTogC5c
+
+
+### JWT Create User
+POST {{host}}/api/auth/register
+Content-Type: application/json 
+
+{
+    "name": "Jhon Charlie Martinez Carranza",
+    "email": "jhonmartinez888@gmail.com",
+    "password": "123456789"
+}
+
+### JWT User Login
+POST {{host}}/api/auth/login
+Content-Type: application/json 
+
+{
+    "email": "jhonmartinez888@gmail.com",
+    "password": "123456789"
+}
+
+### JWT User MeStoredProcedure
+POST {{host}}/api/auth/me
+Authorization: Bearer {{authorization}}
+
+### JWT User Logout
+POST {{host}}/api/auth/logout
+Authorization: Bearer {{authorization}}
+
+
+
+### GET All
+GET {{host}}/api/task
+Authorization: Bearer {{authorization}}
+
+### GET buscar txtBuscar
+StoredProcedureGET {{host}}/api/task?txtBuscar=Maaaaaaa
+Authorization: Bearer {{authorization}}
+
+### Peticion POST Crear Tarea
+POST {{host}}/api/task
+Content-Type: application/json 
+Authorization: Bearer {{authorization}}
+
+{
+    "Name": "Jhoohjhkkko",
+    "Completed": 1
+}
+
+### Peticion PUT Actualizar Tarea
+PUT {{host}}/api/task/52
+Content-Type: application/json 
+Authorization: Bearer {{authorization}}
+
+{
+    "Name": "Jhooo Maaaaaaa",
+    "Completed": 0
+}
+
+### Peticion DELETE
+DELETE {{host}}/api/task/51
+Authorization: Bearer {{authorization}}
