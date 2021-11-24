@@ -13,8 +13,7 @@ router.get("/", async (_, res = response) => {
     //     nIdUser: 2,
     // });
     return res.status(200).json({
-        mysqlDB: "lRoles",
-        mongoDB: "lForums",
+        msg: "Bienvenido al API semilla",
     });
 });
 
