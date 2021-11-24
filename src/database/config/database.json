@@ -1,10 +1,12 @@
 {
   "development": {
-    "username": "jmartinez",
-    "password": "jmartinez",
-    "database": "dev_semilla",
-    "host": "127.0.0.1",
-    "dialect": "mariadb"
+      "username": "jmartinez",
+      "password": "jmartinez",
+      "database": "dev_semilla",
+      "host": "3.18.140.205",
+      "host_servidor": "3.18.140.205",
+      "host_local": "127.0.0.1",
+      "dialect": "mariadb"
   },
   "test": {
       "username": "jmartinez",
