@@ -1,25 +1,30 @@
 {
-  "development": {
-      "username": "jmartinez",
-      "password": "jmartinez",
-      "database": "dev_semilla",
-      "host": "3.18.140.205",
-      "host_servidor": "3.18.140.205",
-      "host_local": "127.0.0.1",
-      "dialect": "mariadb"
-  },
-  "test": {
-      "username": "jmartinez",
-      "password": "jmartinez",
-      "database": "test_semilla",
-      "host": "127.0.0.1",
-      "dialect": "mariadb"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mariadb"
-  }
+    "development": {
+        "username": "appsemilla",
+        "password": "@pp$3m!ll@",
+        "database": "dev_semilla",
+        "host": "3.18.140.205",
+        "dialect": "mariadb"
+    },
+    "test": {
+        "username": "jmartinez",
+        "password": "jmartinez",
+        "database": "test_semilla",
+        "host": "127.0.0.1",
+        "dialect": "mariadb"
+    },
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "database_production",
+        "host": "127.0.0.1",
+        "dialect": "mariadb"
+    },
+    "development_local": {
+        "username": "jmartinez",
+        "password": "jmartinez",
+        "database": "dev_semilla",
+        "host": "127.0.0.1",
+        "dialect": "mariadb"
+    }
 }
