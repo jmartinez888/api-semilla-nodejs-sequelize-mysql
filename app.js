@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { joiRegister } = require("./src/middlewares/core/joiRegister");
+const fileUpload = require("express-fileupload");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -36,6 +37,7 @@ app.use(express.static("public"));
 // Lectura y parseo del body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(fileUpload());
 
 // Rutas
 app.use("/api", require("./src/routes/index.routes"));

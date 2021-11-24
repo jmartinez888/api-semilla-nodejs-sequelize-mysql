@@ -22,6 +22,76 @@ const GetRegistersService = async () => {
     }
 };
 
+const GetRegisterByIdService = async ({ _id }) => {
+    try {
+        const oResponse = await models.CoreRegister.findOne({
+            attributes: { exclude: ["id"] },
+            where: {
+                nId: _id,
+            },
+        })
+            .then((register) => {
+                if (register === null || register.length === 0) {
+                    return null;
+                }
+                return register.dataValues;
+            })
+            .catch((error) => {
+                return null;
+            });
+        return oResponse;
+    } catch (e) {
+        return null;
+    }
+};
+
+const CreateRegisterService = async ({
+    sName,
+    sEmail,
+    sInstitution,
+    sTypePlanted,
+    sDescription,
+    sPhoto,
+    sCommunity,
+    sDirection,
+    sLatitude,
+    sLongitude,
+}) => {
+    try {
+        console.log("rrrrr");
+        const oResponse = await models.CoreRegister.create({
+            sName: sName,
+            sEmail: sEmail,
+            sInstitution: sInstitution,
+            sTypePlanted: sTypePlanted,
+            sDescription: sDescription,
+            sPhoto: sPhoto,
+            sCommunity: sCommunity,
+            sDirection: sDirection,
+            sLatitude: sLatitude,
+            sLongitude: sLongitude,
+            nState: 1,
+            nRowState: 1,
+        })
+            .then((register) => {
+                console.log("rrrrr");
+                console.log(register);
+                if (register === null || register.length === 0) {
+                    return null;
+                }
+                return register.dataValues;
+            })
+            .catch((error) => {
+                return null;
+            });
+        return oResponse;
+    } catch (e) {
+        return null;
+    }
+};
+
 module.exports = {
     GetRegistersService,
+    GetRegisterByIdService,
+    CreateRegisterService,
 };

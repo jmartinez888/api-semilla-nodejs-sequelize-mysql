@@ -12,9 +12,14 @@ const { Router } = require("express");
 //     UpdateCourseController,
 //     RegisterCourseController,
 // } = require("../../controllers/core/course");
-const { GetRegisters } = require("../../controllers/core/registerController");
-// const { NairakkataAdminApp } = require("../../constants/Apps");
-// const { validarApp } = require("../../middlewares/validar-app");
+
+// const {
+//     GetRegisters,
+//     GetRegisterById,
+// } = require("../../controllers/core/registerController");
+
+
+const registerController = require("../../controllers/core/registerController");
 
 const router = Router();
 
@@ -22,22 +27,22 @@ router.get(
     "/all",
     // validarApp([NairakkataAdminApp]),
     // validarJWT,
-    // validarSession, ---19/11/2021 lopez traumatologo 4.30pm 
+    // validarSession, ---19/11/2021 lopez traumatologo 4.30pm
     // validarRol(Roles.Teacher),
-    GetRegisters
+    registerController.GetRegisters
 );
 
 router.get(
-    "/:id"
+    "/byId/:id",
     // validarApp([NairakkataAdminApp]),
     // validarJWT,
     // validarSession,
     // validarRol(Roles.Teacher),
-    // GetCoursesController
+    registerController.GetRegisterById
 );
 
 router.post(
-    "/register"
+    "/create",
     // validarApp([NairakkataAdminApp]),
     // [
     //     check("courseName", "El role es obligatorio").isString(),
@@ -47,7 +52,7 @@ router.post(
     // validarJWT,
     // validarSession,
     // validarRol(Roles.Teacher),
-    // RegisterCourseController
+    registerController.CreateRegister
 );
 
 router.put(

@@ -13,18 +13,67 @@ module.exports = (sequelize, DataTypes) => {
     }
     CoreRegister.init(
         {
-            sName: DataTypes.STRING,
-            sEmail: DataTypes.STRING,
-            sInstitution: DataTypes.STRING,
-            sTypePlanted: DataTypes.STRING,
-            sDescription: DataTypes.STRING,
-            sPhoto: DataTypes.STRING,
-            sCommunity: DataTypes.STRING,
-            sDirection: DataTypes.STRING,
-            sLatitude: DataTypes.STRING,
-            sLongitude: DataTypes.STRING,
-            nState: DataTypes.INTEGER,
-            nRowState: DataTypes.INTEGER,
+            nId: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: DataTypes.INTEGER,
+            },
+            sName: {
+                allowNull: false,
+                type: DataTypes.STRING,
+            },
+            sEmail: {
+                allowNull: false,
+                unique: true,
+                type: DataTypes.STRING,
+            },
+            sInstitution: {
+                allowNull: true,
+                type: DataTypes.STRING,
+            },
+            sTypePlanted: {
+                allowNull: false,
+                type: DataTypes.STRING,
+            },
+            sDescription: {
+                type: DataTypes.STRING,
+            },
+            sPhoto: {
+                allowNull: false,
+                type: DataTypes.STRING,
+            },
+            sCommunity: {
+                type: DataTypes.STRING,
+            },
+            sDirection: {
+                allowNull: false,
+                type: DataTypes.STRING,
+            },
+            sLatitude: {
+                allowNull: false,
+                type: DataTypes.STRING,
+            },
+            sLongitude: {
+                allowNull: false,
+                type: DataTypes.STRING,
+            },
+            nState: {
+                type: DataTypes.INTEGER,
+            },
+            nRowState: {
+                type: DataTypes.INTEGER,
+            },
+            dCreatedAt: {
+                allowNull: false,
+                defaultValue: DataTypes.NOW,
+                type: DataTypes.DATE,
+            },
+            dUpdatedAt: {
+                allowNull: false,
+                defaultValue: DataTypes.NOW,
+                type: DataTypes.DATE,
+            },
         },
         {
             sequelize,

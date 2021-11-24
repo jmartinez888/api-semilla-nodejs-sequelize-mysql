@@ -31,25 +31,32 @@ Authorization: Bearer {{authorization}}
 
 
 
-### GET All
-GET {{host}}/api/task
-Authorization: Bearer {{authorization}}
+### GET Listar todos
+GET {{host}}/api/core/register/all
+# Authorization: Bearer {{authorization}}
 
-### GET buscar txtBuscar
-StoredProcedureGET {{host}}/api/task?txtBuscar=Maaaaaaa
-Authorization: Bearer {{authorization}}
+### GET Buscar por Id
+GET {{host}}/api/core/register/byId/5
+# Authorization: Bearer {{authorization}}
 
-### Peticion POST Crear Tarea
-POST {{host}}/api/task
-Content-Type: application/json 
-Authorization: Bearer {{authorization}}
+### POST Crear Registro
+POST {{host}}/api/core/register/create
+Content-Type: application/json
 
 {
-    "Name": "Jhoohjhkkko",
-    "Completed": 1
+    "name": "sName1",
+    "email": "sEmail1",
+    "institution": "sInstitution1",
+    "typePlanted": "sTypePlanted1",
+    "description": "sDescription1",
+    "photo": "sPhoto1",
+    "community": "sCommunity1",
+    "direction": "sDirection1",
+    "latitude": "sLatitude1",
+    "longitude": "sLongitude1"
 }
 
-### Peticion PUT Actualizar Tarea
+### Petición PUT Actualizar Tarea
 PUT {{host}}/api/task/52
 Content-Type: application/json 
 Authorization: Bearer {{authorization}}
