@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             sEmail: {
                 allowNull: false,
-                unique: true,
+                // unique: true,
                 type: DataTypes.STRING,
             },
             sInstitution: {
@@ -41,6 +41,15 @@ module.exports = (sequelize, DataTypes) => {
             },
             sPhoto: {
                 allowNull: false,
+                type: DataTypes.TEXT("long"),
+            },
+            sDepartmentId: {
+                type: DataTypes.STRING,
+            },
+            sProvinceId: {
+                type: DataTypes.STRING,
+            },
+            sDistricId: {
                 type: DataTypes.STRING,
             },
             sCommunity: {
