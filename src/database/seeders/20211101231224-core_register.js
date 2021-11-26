@@ -1,5 +1,8 @@
 "use strict";
 const faker = require("faker/locale/es");
+const idsUbigeo = require("./UbigeoIds.json");
+// const idsProvince = require("./ProvinceIds.json");
+// const idsDistric = require("./DistricIds.json");
 
 module.exports = {
     up: async (queryInterface, Sequelize) => {
@@ -24,6 +27,11 @@ module.exports = {
                 sTypePlanted: faker.lorem.word(),
                 sDescription: faker.lorem.words(),
                 sPhoto: faker.random.image(),
+                sDepartmentId: faker.random.arrayElement(
+                    idsUbigeo.DepartmentIds
+                ),
+                sProvinceId: faker.random.arrayElement(idsUbigeo.ProvinceIds),
+                sDistricId: faker.random.arrayElement(idsUbigeo.DistricIds),
                 sCommunity: faker.address.cityName(),
                 sDirection: faker.address.streetAddress(),
                 sLatitude: faker.address.latitude(),
