@@ -1,59 +1,29 @@
 "use strict";
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable("core_register", {
+        await queryInterface.createTable("ubigeo", {
             nId: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            sName: {
-                allowNull: false,
-                type: Sequelize.STRING,
-            },
-            sEmail: {
-                allowNull: false,
-                // unique: true,
-                type: Sequelize.STRING,
-            },
-            sInstitution: {
-                allowNull: true,
-                type: Sequelize.STRING,
-            },
-            sTypePlanted: {
-                allowNull: false,
-                type: Sequelize.STRING,
-            },
-            sDescription: {
-                type: Sequelize.STRING,
-            },
-            sPhoto: {
-                allowNull: false,
-                type: Sequelize.TEXT("long"),
-            },
             sDepartmentId: {
+                type: Sequelize.STRING,
+            },
+            sDepartmentName: {
                 type: Sequelize.STRING,
             },
             sProvinceId: {
                 type: Sequelize.STRING,
             },
+            sProvinceName: {
+                type: Sequelize.STRING,
+            },
             sDistricId: {
                 type: Sequelize.STRING,
             },
-            sCommunity: {
-                type: Sequelize.STRING,
-            },
-            sDirection: {
-                allowNull: false,
-                type: Sequelize.STRING,
-            },
-            sLatitude: {
-                allowNull: false,
-                type: Sequelize.STRING,
-            },
-            sLongitude: {
-                allowNull: false,
+            sDistricName: {
                 type: Sequelize.STRING,
             },
             nState: {
@@ -75,6 +45,6 @@ module.exports = {
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable("core_register");
+        await queryInterface.dropTable("ubigeo");
     },
 };
