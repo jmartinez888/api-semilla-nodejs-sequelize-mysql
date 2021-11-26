@@ -10,7 +10,7 @@ const GetRegistersService = async () => {
         // );
         // await sequelize.sync();
         const oResponse = await models.CoreRegister.findAll({
-            attributes: { exclude: ["id"] },
+            // attributes: { exclude: ["id"] },
         });
 
         if (oResponse.length > 0) {
@@ -25,7 +25,7 @@ const GetRegistersService = async () => {
 const GetRegisterByIdService = async ({ _id }) => {
     try {
         const oResponse = await models.CoreRegister.findOne({
-            attributes: { exclude: ["id"] },
+            // attributes: { exclude: ["id"] },
             where: {
                 nId: _id,
             },
@@ -45,9 +45,9 @@ const GetRegisterByIdService = async ({ _id }) => {
     }
 };
 
-const GetRegisterByEmailService = async ({ sEmail }) => {
+const GetRegistersByEmailService = async ({ sEmail }) => {
     try {
-        const oResponse = await models.CoreRegister.findOne({
+        const oResponse = await models.CoreRegister.findAll({
             // attributes: { exclude: ["id"] },
             where: {
                 sEmail: sEmail,
@@ -92,9 +92,9 @@ const CreateRegisterService = async ({
             sTypePlanted: sTypePlanted,
             sDescription: sDescription,
             sPhoto: sPhoto,
-            sDepartment: sDepartment,
-            sProvince: sProvince,
-            sDistric: sDistric,
+            sDepartmentId: sDepartment,
+            sProvinceId: sProvince,
+            sDistricId: sDistric,
             sCommunity: sCommunity,
             sDirection: sDirection,
             sLatitude: sLatitude,
@@ -122,6 +122,6 @@ const CreateRegisterService = async ({
 module.exports = {
     GetRegistersService,
     GetRegisterByIdService,
-    GetRegisterByEmailService,
+    GetRegistersByEmailService,
     CreateRegisterService,
 };

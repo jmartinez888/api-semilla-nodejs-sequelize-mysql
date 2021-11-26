@@ -47,7 +47,7 @@ router.get(
     // validarJWT,
     // validarSession,
     // validarRol(Roles.Teacher),
-    registerController.GetRegisterByEmail
+    registerController.GetRegistersByEmail
 );
 
 router.post(

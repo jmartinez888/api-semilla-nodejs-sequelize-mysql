@@ -3,7 +3,7 @@ const fs = require("fs");
 const {
     GetRegistersService,
     GetRegisterByIdService,
-    GetRegisterByEmailService,
+    GetRegistersByEmailService,
     CreateRegisterService,
 } = require("../../services/core/registerService");
 
@@ -42,9 +42,9 @@ const GetRegisterById = async (req, res = response) => {
     });
 };
 
-const GetRegisterByEmail = async (req, res = response) => {
+const GetRegistersByEmail = async (req, res = response) => {
     const { email: sEmail } = req.params;
-    const oResponse = await GetRegisterByEmailService({ sEmail });
+    const oResponse = await GetRegistersByEmailService({ sEmail });
     if (oResponse === null) {
         return res.status(200).json({
             ok: false,
@@ -116,6 +116,6 @@ const CreateRegister = async (req, res = response) => {
 module.exports = {
     GetRegisters,
     GetRegisterById,
-    GetRegisterByEmail,
+    GetRegistersByEmail,
     CreateRegister,
 };
