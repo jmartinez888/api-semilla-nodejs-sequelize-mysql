@@ -1,7 +1,9 @@
 const { response } = require("express");
+const fs = require("fs");
 const {
     GetRegistersService,
     GetRegisterByIdService,
+    GetRegisterByEmailService,
     CreateRegisterService,
 } = require("../../services/core/registerService");
 
@@ -40,6 +42,24 @@ const GetRegisterById = async (req, res = response) => {
     });
 };
 
+const GetRegisterByEmail = async (req, res = response) => {
+    const { email: sEmail } = req.params;
+    const oResponse = await GetRegisterByEmailService({ sEmail });
+    if (oResponse === null) {
+        return res.status(200).json({
+            ok: false,
+            msg: "No se encontró el registro",
+            data: oResponse,
+        });
+    }
+
+    return res.status(200).json({
+        ok: true,
+        msg: "Dato de registro...",
+        data: oResponse,
+    });
+};
+
 const CreateRegister = async (req, res = response) => {
     const {
         name: sName,
@@ -48,6 +68,9 @@ const CreateRegister = async (req, res = response) => {
         typePlanted: sTypePlanted,
         description: sDescription,
         photo: sPhoto,
+        department: sDepartment,
+        province: sProvince,
+        distric: sDistric,
         community: sCommunity,
         direction: sDirection,
         latitude: sLatitude,
@@ -61,12 +84,23 @@ const CreateRegister = async (req, res = response) => {
         sTypePlanted,
         sDescription,
         sPhoto,
+        sDepartment,
+        sProvince,
+        sDistric,
         sCommunity,
         sDirection,
         sLatitude,
         sLongitude,
     });
     if (oResponse !== null) {
+        // base64Data = sPhoto.replace(/^data:image\/png;base64,/, "");
+        // base64Data += base64Data.replace("+", " ");
+        // binaryData = new Buffer.from(sPhoto, "base64").toString("binary");
+        // fs.writeFileSync("../../public/new-path.jpg", binaryData);
+        // fs.writeFile("out.jpg", binaryData, "binary", function (err) {
+        //     console.log(err); // writes out file without error, but it's not a valid image
+        // });
+
         return res.status(200).json({
             ok: true,
             data: oResponse,
@@ -82,5 +116,6 @@ const CreateRegister = async (req, res = response) => {
 module.exports = {
     GetRegisters,
     GetRegisterById,
+    GetRegisterByEmail,
     CreateRegister,
 };

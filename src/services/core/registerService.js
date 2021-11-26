@@ -45,6 +45,29 @@ const GetRegisterByIdService = async ({ _id }) => {
     }
 };
 
+const GetRegisterByEmailService = async ({ sEmail }) => {
+    try {
+        const oResponse = await models.CoreRegister.findOne({
+            // attributes: { exclude: ["id"] },
+            where: {
+                sEmail: sEmail,
+            },
+        })
+            .then((register) => {
+                if (register === null || register.length === 0) {
+                    return null;
+                }
+                return register.dataValues;
+            })
+            .catch((error) => {
+                return null;
+            });
+        return oResponse;
+    } catch (e) {
+        return null;
+    }
+};
+
 const CreateRegisterService = async ({
     sName,
     sEmail,
@@ -52,13 +75,16 @@ const CreateRegisterService = async ({
     sTypePlanted,
     sDescription,
     sPhoto,
+    sDepartment,
+    sProvince,
+    sDistric,
     sCommunity,
     sDirection,
     sLatitude,
     sLongitude,
 }) => {
     try {
-        console.log("rrrrr");
+        // console.log("rrrrr");
         const oResponse = await models.CoreRegister.create({
             sName: sName,
             sEmail: sEmail,
@@ -66,6 +92,9 @@ const CreateRegisterService = async ({
             sTypePlanted: sTypePlanted,
             sDescription: sDescription,
             sPhoto: sPhoto,
+            sDepartment: sDepartment,
+            sProvince: sProvince,
+            sDistric: sDistric,
             sCommunity: sCommunity,
             sDirection: sDirection,
             sLatitude: sLatitude,
@@ -74,8 +103,8 @@ const CreateRegisterService = async ({
             nRowState: 1,
         })
             .then((register) => {
-                console.log("rrrrr");
-                console.log(register);
+                // console.log("rrrrr");
+                // console.log(register);
                 if (register === null || register.length === 0) {
                     return null;
                 }
@@ -93,5 +122,6 @@ const CreateRegisterService = async ({
 module.exports = {
     GetRegistersService,
     GetRegisterByIdService,
+    GetRegisterByEmailService,
     CreateRegisterService,
 };

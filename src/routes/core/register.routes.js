@@ -41,6 +41,15 @@ router.get(
     registerController.GetRegisterById
 );
 
+router.get(
+    "/byEmail/:email",
+    // validarApp([NairakkataAdminApp]),
+    // validarJWT,
+    // validarSession,
+    // validarRol(Roles.Teacher),
+    registerController.GetRegisterByEmail
+);
+
 router.post(
     "/create",
     // validarApp([NairakkataAdminApp]),
